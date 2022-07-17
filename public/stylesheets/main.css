@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+body {
+  /* padding: 50px; */
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+main > h2 {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  text-align: center;
+  width: 100%;
+  font-size: 3vh;
+}
+
+main > table {
+  width: 70%;
+  border-collapse: collapse;
+}
+
+main > table > thead {
+  background-color: grey;
+  font-size: 2vh;
+  color: whitesmoke;
+}
+
+thead, tbody {
+  border: 1px solid black;
+  height: 3vh;
+}
+
+td {
+  padding-left: 10px;
+}
+
+th, td {
+  border-left: 1px solid black;
+}
+
+tbody > tr:nth-child(even) {
+  background-color: whitesmoke;
+}
+
+button {
+  border-radius: 25px;
+  border: 1px solid white;
+  padding: 1vh;
+  background-color: darkgrey;
+  font-style: bold;
+  width: 15vh;
+}
+
+button:hover {
+  background-color: plum;
+  border: 1px solid purple;
+  color: purple;
+}

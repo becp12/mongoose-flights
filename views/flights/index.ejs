@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 
-<h1>Mongoose Flights</h1>
-<h2>Flight List</h2>
-<table>
+<main>
+  <h2>Flight List</h2>
+  <table>
     <thead>
       <tr>
         <th>Airline</th>
@@ -16,11 +16,13 @@
         <tr>
           <td><%= f.airline %></td>
           <td><%= f.airport %></td>
-          <td><%= f.flightNo %></td>
+          <td>#<%= f.flightNo %></td>
           <td><%= f.departs.toDateString() %></td>
         </tr>
       <% }); %>
     </tbody>
   </table>
+  <a href="/flights/new"><button>Add Flight</button></a>
+</main>
 
 <%- include('../partials/footer') %>
