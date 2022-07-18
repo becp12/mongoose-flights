@@ -2,12 +2,17 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-
-// let year = today.getFullYear()+1;
-// let month = today.getMonth();
-// let day = today.getDate();
-// let hour = today.getHours();
-// let minutes = today.getMinutes();
+// Destinations (subdocs) will be embedded inside of flight document
+const destinationSchema = new Schema({
+    airport: {
+        type: String,
+        enum: ['AUS', 'LAX', 'JFK', 'MEL', 'SYD', 'LAS', 'DFW', 'DEN', 'SAN']
+    },
+    arrival: Date,
+  }, {
+    // automatic createAt & updatedAt properties
+    timestamps: true,
+  });
 
 const flightSchema = new Schema({
     airline: {
@@ -30,6 +35,7 @@ const flightSchema = new Schema({
             return today.setFullYear(today.getFullYear() +1);
         }
     },
+    destinations: [destinationSchema],
 })
 
 module.exports = mongoose.model('Flight', flightSchema);
