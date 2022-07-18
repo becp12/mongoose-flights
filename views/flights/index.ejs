@@ -9,6 +9,7 @@
         <th>Airport</th>
         <th>Flight Number</th>
         <th>Departs</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
           <td><%= f.airport %></td>
           <td>#<%= f.flightNo %></td>
           <td><%= f.departs.toDateString() %></td>
+          <td><a href="">Details</a></td>
         </tr>
       <% }); %>
     </tbody>

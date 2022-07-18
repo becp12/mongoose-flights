@@ -51,6 +51,10 @@ tbody > tr:nth-child(even) {
   background-color: whitesmoke;
 }
 
+tbody > tr > td:last-child {
+  text-align: center;
+}
+
 button {
   border-radius: 25px;
   border: 1px solid white;
