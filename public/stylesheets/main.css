@@ -69,3 +69,7 @@ button:hover {
   border: 1px solid purple;
   color: purple;
 }
+
+.pastDate {
+  color: red;
+}

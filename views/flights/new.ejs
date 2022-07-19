@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<section>
+<section id="new-flight">
   <h2>Add New Flight</h2>
   <form action="/flights" method="POST">
     <label>Airline:</label>
@@ -13,15 +13,9 @@
     
     <label>Airport:</label>
     <select name="airport" required>
-        <option value="AUS">Austin (AUS)</option>
-        <option value="LAX">Los Angeles (LAX)</option>
-        <option value="JFK">New York City (JFK)</option>
-        <option value="MEL">Melbourne (MEL)</option>
-        <option value="SYD">Sydney (SYD)</option>
-        <option value="LAS">Las Vegas (LAS)</option>
-        <option value="DFW">Dallas Fort Worth (DFW)</option>
-        <option value="DEN" selected>Denver (DEN)</option>
-        <option value="SAN">San Deigo (SAN)</option>
+      <% airports.forEach(a => { %>
+        <option value="<%= a.code %>" <%= a.selected ? 'selected' : '' %>><%= a.name %></option>
+      <% }) %>
     </select>
 
     <label>Flight Number:</label>

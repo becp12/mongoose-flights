@@ -13,13 +13,13 @@
       </tr>
     </thead>
     <tbody>
-      <% flights.forEach(function(f) { %>
-        <tr>
+      <% flight.forEach(function(f) { %>
+        <tr class="<%= f.departs < new Date() ? 'pastDate' : '' %>">
           <td><%= f.airline %></td>
           <td><%= f.airport %></td>
           <td>#<%= f.flightNo %></td>
-          <td><%= f.departs.toDateString() %></td>
-          <td><a href="">Details</a></td>
+          <td><%= f.departs.toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short'}) %></td>
+          <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
         </tr>
       <% }); %>
     </tbody>

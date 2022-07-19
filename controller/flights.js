@@ -1,15 +1,30 @@
 const Flight = require('../models/flight');
 
+const allAirports = [
+    {code: 'AUS', name: 'Austin (AUS)', selected: false},
+    {code: 'LAX', name: 'Los Angeles (LAX)', selected: false},
+    {code: 'MEL', name: 'Melbourne (MEL)', selected: false},
+    {code: 'SYD', name: 'Sydney (SYD)', selected: false},
+    {code: 'JFK', name: 'New York City (JFK)', selected: false},
+    {code: 'LAS', name: 'Las Vegas (LAS)', selected: false},
+    {code: 'DFW', name: 'Dallas Fort Worth (DFW)', selected: false},
+    {code: 'DEN', name: 'Denver (DEN)', selected: true},
+    {code: 'SAN', name: 'San Deigo (SAN)', selected: false},
+]
+
 module.exports = {
     index,
     new: newFlight,
-    create
+    create,
+    show,
 };
 
 function index(req, res) {
-    Flight.find({}, function(err, flights) {
-        res.render('flights/index', { flights });
-    })
+    Flight.find({})
+            .sort('departs')
+            .exec(function(err, flight) {
+                res.render('flights/index', { flight });
+            });
 };
 
 function newFlight(req, res) {
@@ -19,7 +34,7 @@ function newFlight(req, res) {
     // Format the date for the value attribute of the input
     let departsDate = `${dt.getFullYear()}-${(dt.getMonth() + 1).toString().padStart(2, '0')}`;
     departsDate += `-${dt.getDate().toString().padStart(2, '0')}T${dt.toTimeString().slice(0, 5)}`;
-    res.render('flights/new', { departsDate });
+    res.render('flights/new', { departsDate, airports: allAirports });
 }
 
 function create(req, res) {
@@ -30,3 +45,13 @@ function create(req, res) {
         res.redirect('/flights');
     });
 };
+
+function show(req, res) {
+    Flight.findById(req.params.id, function(err, flight) {
+        let airports = allAirports.filter((a) => a.code !== flight.airport && !flight.destinations.some((d) => a.code === d.airport));
+        flight.destinations.sort(function(a, b) {
+            return a.arrival - b.arrival;
+        });
+        res.render('flights/show', { flight, airports });
+    })
+}
