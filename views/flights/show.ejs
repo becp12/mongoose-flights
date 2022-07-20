@@ -36,7 +36,6 @@
     </form>
 </section>
 <main>
-    <a href="/flights"><button>Go Back</button></a>
     <% if (flight.destinations.length) { %>
         <h3>Destination Details:</h3>
         <table>
@@ -76,7 +75,7 @@
                     <tr>
                         <td><%= t.seat %></td>
                         <td><%= t.price %></td>
-                        <td><form action="/flights/<%= flight._id %>/tickets/<%= t._id %>?_method=DELETE" method="POST"><button>X</button></form></td>
+                        <td><form id="delete-button" action="/flights/<%= flight._id %>/tickets/<%= t._id %>?_method=DELETE" method="POST"><button>X</button></form></td>
                     </tr>
                 <% }); %>
             </tbody>
@@ -85,5 +84,6 @@
         <h5>No Tickets Supplied</h5>
     <% } %>
     <a href="/flights/<%= flight._id %>/tickets/new"><button>New Ticket</button></a>
+    <a href="/flights"><button>Go Back</button></a>
 </main>
 <%- include('../partials/footer') %>

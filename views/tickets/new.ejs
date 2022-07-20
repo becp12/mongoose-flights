@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
-<section>
+<section class="add-ticket-container">
   <h2>Add Ticket</h2>
-  <form action="/flights/<%= flightId %>/tickets" method="POST">
+  <form class="add-ticket" action="/flights/<%= flightId %>/tickets" method="POST">
     <label>Seat Number:</label>
     <input name="seat" required pattern="[A-F][1-9]\d?" title="A-F followed by 1-99">
 
@@ -11,7 +11,6 @@
     <input type="submit" value="Add Ticket">
   
   </form>
-  <a href="/flights"><button>Go Back</button></a>
 </section>
 
 <%- include('../partials/footer') %>

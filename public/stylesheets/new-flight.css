@@ -15,7 +15,7 @@
     height: 4vh;
   }
 
-form {
+#add-flight {
     margin-left: auto;
     margin-right: auto;
     display: grid;
@@ -28,12 +28,12 @@ form {
     justify-content: center;
 }
 
-form > * {
+#add-flight > * {
     margin: 1vh;
     width: 100%
 }
 
-form > input:last-of-type {
+#add-flight > input:last-of-type {
     grid-column: span 2;
     border-radius: 25px;
     border: 1px solid white;
@@ -42,13 +42,13 @@ form > input:last-of-type {
     font-style: bold;
 }
 
-form > input:last-of-type:hover {
+#add-flight > input:last-of-type:hover {
     background-color: plum;
     border: 1px solid purple;
     color: purple;
 }
 
-form > label {
+#add-flight > label {
     font-weight: bold;
     font-style: italic;
 }

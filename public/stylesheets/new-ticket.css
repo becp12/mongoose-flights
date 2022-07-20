@@ -1,0 +1,38 @@
+.add-ticket > input:last-of-type {
+    grid-column: span 2;
+    border-radius: 25px;
+    border: 1px solid white;
+    padding: 1vh;
+    background-color: darkgrey;
+    font-style: bold;
+}
+
+.add-ticket > input:last-of-type:hover {
+    background-color: plum;
+    border: 1px solid purple;
+    color: purple;
+}
+
+.add-ticket-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-ticket-container > h2 {
+    margin: 2vh 0;
+}
+
+form.add-ticket {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1vh;
+}
+
+form.add-ticket > label {
+    align-self: center;
+    font-weight: bold;
+    font-style: italic;
+}

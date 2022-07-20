@@ -10,3 +10,29 @@
     align-content: center;
     justify-content: center;
 };
+
+#delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main > h3 {
+    margin-top: 2vh;
+}
+
+#destination-form > input:last-of-type {
+    grid-column: span 2;
+    border-radius: 25px;
+    border: 1px solid white;
+    padding: 1vh;
+    background-color: darkgrey;
+    font-style: bold;
+}
+
+#destination-form > input:last-of-type:hover {
+    background-color: plum;
+    border: 1px solid purple;
+    color: purple;
+}
+
