@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var methodOverride = require('method-override');
 
 require('dotenv').config();
 require('./config/database');
@@ -23,12 +24,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/flights', flightsRouter);
 // The starts with path for a related resource, destinations, varies, thus we cannot specify a starts with path
 app.use('/', destinationsRouter)
-app.use('/flights', ticketsRouter)
+app.use('/', ticketsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
