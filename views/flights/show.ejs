@@ -30,9 +30,9 @@
         </select>
 
         <label>Arrival: </label>
-        <input type="datetime-local" id="arrival" name="arrival">
+        <input type="datetime-local" id="arrival" name="arrival" required>
 
-        <input type="submit" value="Add Destination">
+        <input type="submit" value="Add Destination" required>
     </form>
 </section>
 <main>
@@ -58,6 +58,29 @@
     <% } else { %>
         <h5>No Destination Information Supplied</h5>
     <% } %>
-    
-    </main>
+</main>
+
+<main>
+    <% if (tickets.length) { %>
+        <h3>Ticket Details:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Seat</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tickets.forEach(function(t) { %>
+                    <tr>
+                        <td><%= t.seat %></td>
+                        <td><%= t.price %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <h5>No Tickets Supplied</h5>
+    <% } %>
+</main>
 <%- include('../partials/footer') %>

@@ -1,4 +1,5 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 
 const allAirports = [
     {code: 'AUS', name: 'Austin (AUS)', selected: false},
@@ -52,6 +53,9 @@ function show(req, res) {
         flight.destinations.sort(function(a, b) {
             return a.arrival - b.arrival;
         });
-        res.render('flights/show', { flight, airports });
-    })
-}
+        Ticket.find({flight: flight._id}, function(err, tickets) {
+            // Now you can pass both the flight and tickets in the res.render call
+            res.render('flights/show', { flight, airports, tickets });
+          });
+    });
+};
