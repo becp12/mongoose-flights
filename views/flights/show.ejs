@@ -21,7 +21,7 @@
 </main>
 
 <section id="add-destination">
-    <form action="/flights/<%=flight._id %>/destinations" method="post" id="destination-form">
+    <form action="/flights/<%= flight._id %>/destinations" method="POST" id="destination-form">
         <label>Airport: </label>
         <select name="airport" required>
             <% airports.forEach(a => { %>
